@@ -1,0 +1,57 @@
+plugins {
+    id 'fabric-loom' version '1.0.0-SNAPSHOT'
+}
+
+group = 'com.friendsmod'
+version = '1.0.0'
+archivesBaseName = 'friendsmod'
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.20.1'
+    mappings minecraft.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.15.11'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.93.0+1.20.1'
+    
+    // Audio libraries for voice chat
+    implementation 'com.github.kokorin:jaffas:1.2.0'
+    implementation 'com.github.kokorin:jaffas-audio:1.2.0'
+}
+
+processResources {
+    inputs.property "version", project.version
+    
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+java {
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}"}
+    }
+}
+
+sourcesJar {
+    from("LICENSE")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+// Create run configurations
+runClient.configName = "Run Client"
+runClient.jvmArgs = [
+    "-Xmx2G",
+    "-Djava.library.path=run"
+]
+
+runServer.configName = "Run Server"
+runServer.jvmArgs = [
+    "-Xmx2G",
+    "-Djava.library.path=run"
+]

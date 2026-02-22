@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "friendsmod",
+  "version": "1.0.0",
+  "name": "Friends Mod",
+  "description": "Comprehensive Friends System with Voice Chat and World Invites",
+  "authors": [
+    "FriendsMod Team"
+  ],
+  "contact": {
+    "homepage": "https://github.com/friendsmod/friendsmod",
+    "sources": "https://github.com/friendsmod/friendsmod"
+  },
+  "license": "MIT",
+  "icon": "assets/friendsmod/icon.png",
+  "environment": [
+    "client"
+  ],
+  "entrypoints": {
+    "main": [
+      "com.friendsmod.FriendsMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    {
+      "target": "net.minecraft.client.gui.screen.MainMenuScreen",
+      "mixin": "com.friendsmod.mixin.MainMenuMixin"
+    }
+  ],
+  "custom": {
+    "permissions": [
+      "network",
+      "audio"
+    ]
+  }
+}

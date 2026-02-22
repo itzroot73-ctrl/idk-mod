@@ -1,0 +1,31 @@
+{
+  "player": {
+    "username": "Player",
+    "uid": "UID_1234-5678-9012-3456",
+    "skin": "default",
+    "voiceChatEnabled": true,
+    "lastWorld": ""
+  },
+  "friends": [
+    {
+      "username": "Friend1",
+      "uid": "UID_aaaa-bbbb-cccc-dddd",
+      "skin": "default",
+      "online": false,
+      "lastWorld": ""
+    },
+    {
+      "username": "Friend2",
+      "uid": "UID-eeee-ffff-gggg-hhhh",
+      "skin": "default",
+      "online": false,
+      "lastWorld": ""
+    }
+  ],
+  "settings": {
+    "voiceChatVolume": 0.8,
+    "voiceChatDistance": 20.0,
+    "notificationsEnabled": true,
+    "autoConnect": true
+  }
+}
